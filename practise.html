@@ -11,14 +11,30 @@
             function array_opr()
             {
                 const fruits=["apple","oraange","papaya","malta"];
-                alert(fruits.length+fruits);
+                alert(fruits.length+" "+ fruits);
+                console.log(fruits.slice(2));
+                console.log(fruits.toString());
+                console.log(fruits.reverse())
+            }
+            function date_opr()
+            {
+                const date = new Date();
+                let year = date.getFullYear();
+                let hour = date.getHours();
+                let day = date.getDay();
+                document.getElementById("date").innerHTML=date+"  "+
+                "hours"+hour+" "+"today is"+day+"st day of week";
             }
         </script>
     </head>
     <body>
         <p id="pid"> This text will get changed after a button click along with an alert</p>
         <button type="button" onclick="text_Change()">CLick Me</button>
-        <button type="array" onclick="array_opr()">click for array</button>
+        <button type="button" onclick="array_opr()">add to array</button>
+        <button type="button" onclick="date_opr()">Today Date</button>
+        <h2 id="date"></h2>
+       
+        
         
     </body>
     </html>
