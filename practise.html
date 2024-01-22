@@ -1,76 +1,122 @@
- <html>
-    <head>
-        <title>JS Practice</title>
-        <script>
-            function text_Change()// this function works with dom and changes text
-            {
-               alert("change text");
-               document.getElementById("pid").innerHTML="Text changed with js";
-               
-            }
-            function array_opr() //this function perfroms array operations
-            {
-                const fruits=["apple","oraange","papaya","malta"];
-                alert("current lenght of array is"+fruits.length+" ");
-                fruits.push("kiwi");
-                let text = "";
-                for (let i of fruits){
-                    text += i + "<br>";
-                }
-                document.getElementById("array").innerHTML=text;
-                console.log(fruits.slice(2));
-                console.log(fruits.toString());
-                console.log(fruits.reverse())
-            }
-            function date_opr() //this function performs date related functions
-            {
-                const date = new Date();
-                let year = date.getFullYear();
-                let hour = date.getHours();
-                let day = date.getDay();
-                document.getElementById("date").innerHTML=date+"  "+
-                "hours"+hour+" "+"today is"+day+"st day of week";
-            }
-            function math_opr() //this performs math operations from built in Math library
-            {
-                let a =10.3;
-                let b=900;
-                document.getElementById("math").innerHTML="round"+" "+Math.round(a)+" "+"square root"+Math.sqrt(a)+" "+"floor"+Math.floor(a)+" "+"ceil"+
-                Math.ceil(a)+" "+"random"+" "+Math.random(1,900)+" "+"min value"+Math.min(a,b)+" "+"max value"+" "+Math.max(a,b);
-            }
-            function optr_opr() //this function performs comparison between two mumber
-            {
-                let n1=document.getElementById("n1").value
-                let n2=document.getElementById("n2").value
-                
-                    if(n1>n2)
-                    {
-                       alert("n1 is greater");
-                    }
-                    else
-                    {
-                        alert("n2 is greater");
-                    }
-                    
-                
-            }
-        </script>
-    </head>
-    <body>
-        <p id="pid"> This text will get changed after a button click along with an alert</p>
-        <button type="button" onclick="text_Change()">Change Text</button>
-        <button type="button" onclick="array_opr()">Array</button>
-        <button type="button" onclick="date_opr()">Today Date</button>
-        <button type="button" onclick="math_opr()">Math Operation</button><br/>
-        N1 <input type="text" id="n1"><br/>
-        N2<input type="text" id ="n2"><br/>
-        <button type="button" onclick="optr_opr()">Operators</button>
-        <h1 id="array"></h1>
-        <h2 id="date"></h2>
-        <h3 id="math"></h3>
-        <h4 id ="opr"></h4>
-       
-        
-        
-    </body>
-    </html>
+<html>
+  <head>
+    <title>JS Practice</title>
+    <script>
+      function text_Change() {
+        // this function works with dom and changes text
+        alert("change text");
+        document.getElementById("pid").innerHTML = "Text changed with js";
+      }
+      function array_opr() {
+        //this function perfroms array operations
+        const fruits = ["apple", "oraange", "papaya", "malta"];
+        alert("current lenght of array is" + fruits.length + " ");
+        fruits.push("kiwi");
+        let text = "";
+        for (let i of fruits) {
+          text += i + "<br>";
+        }
+        document.getElementById("array").innerHTML = text;
+        console.log(fruits.slice(2));
+        console.log(fruits.toString());
+        console.log(fruits.reverse());
+      }
+      function date_opr() {
+        //this function performs date related functions
+        const date = new Date();
+        let year = date.getFullYear();
+        let hour = date.getHours();
+        let day = date.getDay();
+        document.getElementById("date").innerHTML =
+          date +
+          "  " +
+          "hours" +
+          hour +
+          " " +
+          "today is" +
+          day +
+          "st day of week";
+      }
+      function math_opr() {
+        //this performs math operations from built in Math library
+        let a = 10.3;
+        let b = 900;
+        document.getElementById("math").innerHTML =
+          "round" +
+          " " +
+          Math.round(a) +
+          " " +
+          "square root" +
+          Math.sqrt(a) +
+          " " +
+          "floor" +
+          Math.floor(a) +
+          " " +
+          "ceil" +
+          Math.ceil(a) +
+          " " +
+          "random" +
+          " " +
+          Math.random(1, 900) +
+          " " +
+          "min value" +
+          Math.min(a, b) +
+          " " +
+          "max value" +
+          " " +
+          Math.max(a, b);
+      }
+      function optr_opr() {
+        //this function performs comparison between two mumber
+        let n1 = document.getElementById("n1").value;
+        let n2 = document.getElementById("n2").value;
+        if (n1 > n2) {
+          alert("n1 is greater");
+        } else {
+          alert("n2 is greater");
+        }
+      }
+      function calculate_expr()
+      {//this function calculates any expression entered by user also makes use of try catch for exception handling
+        let expr=document.getElementById("expr").value;
+        try{
+           if(expr=="")throw alert("empty");
+           document.getElementById("math").innerHTML=eval(expr);
+        }
+        catch(err){
+               console.log(err);
+        }
+      }
+      const my_Set = new Set(["avacado","brocoli","zuchini"]);//created a set named my_set
+      let data="";
+      my_Set.forEach(function(value){
+          data+=value+"<br/>";  // retrieving set's values
+      });
+      document.write("set data"+" "+data);
+      const fruits = new Map([
+  ["apples", 500],
+  ["bananas", 300],
+  ["oranges", 200]
+]);//created a map called fruits
+    document.write("single value from map"+fruits.get("oranges"));
+    </script>
+  </head>
+  <body>
+    <p id="pid">
+      This text will get changed after a button click along with an alert
+    </p>
+    <button type="button" onclick="text_Change()">Change Text</button>
+    <button type="button" onclick="array_opr()">Array</button>
+    <button type="button" onclick="date_opr()">Today Date</button>
+    <button type="button" onclick="math_opr()">Math Operation</button><br />
+    N1 <input type="text" id="n1" /><br />
+    N2<input type="text" id="n2" /><br />
+    <button type="button" onclick="optr_opr()">Operators</button><br/>
+    Expression<input type="text" placeholder="enter Expression" id="expr"> <button type="button" onclick="calculate_expr()">Calculate</button><br/>
+    <button type="button">set</button>
+    <h1 id="array"></h1>
+    <h2 id="date"></h2>
+    <h3 id="math"></h3>
+    <h4 id="opr"></h4>
+  </body>
+</html>
