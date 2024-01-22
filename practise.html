@@ -1,4 +1,4 @@
-<html>
+ <html>
     <head>
         <title>JS Practice</title>
         <script>
@@ -25,6 +25,13 @@
                 document.getElementById("date").innerHTML=date+"  "+
                 "hours"+hour+" "+"today is"+day+"st day of week";
             }
+            function math_opr()
+            {
+                let a =10.3;
+                let b=900;
+                document.getElementById("math").innerHTML="round"+" "+Math.round(a)+" "+"square root"+Math.sqrt(a)+" "+"floor"+Math.floor(a)+" "+"ceil"+
+                Math.ceil(a)+" "+"random"+" "+Math.random(1,900)+" "+"min value"+Math.min(a,b)+" "+"max value"+" "+Math.max(a,b);
+            }
         </script>
     </head>
     <body>
@@ -32,7 +39,9 @@
         <button type="button" onclick="text_Change()">CLick Me</button>
         <button type="button" onclick="array_opr()">add to array</button>
         <button type="button" onclick="date_opr()">Today Date</button>
+        <button type="button" onclick="math_opr()">Math Operation</button>
         <h2 id="date"></h2>
+        <h3 id="math"></h3>
        
         
         
