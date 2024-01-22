@@ -76,29 +76,46 @@
           alert("n2 is greater");
         }
       }
-      function calculate_expr()
-      {//this function calculates any expression entered by user also makes use of try catch for exception handling
-        let expr=document.getElementById("expr").value;
-        try{
-           if(expr=="")throw alert("empty");
-           document.getElementById("math").innerHTML=eval(expr);
-        }
-        catch(err){
-               console.log(err);
+      function calculate_expr() {
+        //this function calculates any expression entered by user also makes use of try catch for exception handling
+        let expr = document.getElementById("expr").value;
+        try {
+          if (expr == "") throw alert("empty");
+          document.getElementById("math").innerHTML = eval(expr);
+        } catch (err) {
+          console.log(err);
         }
       }
-      const my_Set = new Set(["avacado","brocoli","zuchini"]);//created a set named my_set
-      let data="";
-      my_Set.forEach(function(value){
-          data+=value+"<br/>";  // retrieving set's values
+      const my_Set = new Set(["avacado", "brocoli", "zuchini"]); //created a set named my_set
+      let data = "";
+      my_Set.forEach(function (value) {
+        data += value + "<br/>"; // retrieving set's values
       });
-      document.write("set data"+" "+data);
+      document.write("set data" + " " + data);
       const fruits = new Map([
-  ["apples", 500],
-  ["bananas", 300],
-  ["oranges", 200]
-]);//created a map called fruits
-    document.write("single value from map"+fruits.get("oranges"));
+        ["apples", 500],
+        ["bananas", 300],
+        ["oranges", 200],
+      ]); //created a map called fruits
+      document.write("single value from map" + fruits.get("oranges"));
+      hello = () => alert("hello world from arrow function");// an arrow fucntion which alerts hello world onload
+      window.addEventListener("load",hello); 
+      class user_info//a class named user_info with properties like name,age and wealth
+      {
+        constructor(name,age,wealth) // constructor method
+        {
+            this.name=name;
+            this.age=age;
+            this.wealth=wealth;
+        }
+        detail() // a method that simply prints out user info
+        {
+            return "username is"+" "+this.name+" "+"user age is"+" "+this.age+""+"user wealth is"+" "+this.wealth
+        }
+      }
+      const obj = new user_info("jack",13,3000000); //obj is the object of user_info class
+      document.write(obj.detail());
+      
     </script>
   </head>
   <body>
@@ -111,12 +128,14 @@
     <button type="button" onclick="math_opr()">Math Operation</button><br />
     N1 <input type="text" id="n1" /><br />
     N2<input type="text" id="n2" /><br />
-    <button type="button" onclick="optr_opr()">Operators</button><br/>
-    Expression<input type="text" placeholder="enter Expression" id="expr"> <button type="button" onclick="calculate_expr()">Calculate</button><br/>
+    <button type="button" onclick="optr_opr()">Operators</button><br />
+    Expression<input type="text" placeholder="enter Expression" id="expr" />
+    <button type="button" onclick="calculate_expr()">Calculate</button><br />
     <button type="button">set</button>
     <h1 id="array"></h1>
     <h2 id="date"></h2>
     <h3 id="math"></h3>
     <h4 id="opr"></h4>
+    <p id="user"></p>
   </body>
 </html>
