@@ -8,10 +8,17 @@
                document.getElementById("pid").innerHTML="Text changed with js";
                
             }
+            function array_opr()
+            {
+                const fruits=["apple","oraange","papaya","malta"];
+                alert(fruits.length+fruits);
+            }
         </script>
     </head>
     <body>
         <p id="pid"> This text will get changed after a button click along with an alert</p>
         <button type="button" onclick="text_Change()">CLick Me</button>
+        <button type="array" onclick="array_opr()">click for array</button>
+        
     </body>
     </html>
