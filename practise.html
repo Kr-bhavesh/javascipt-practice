@@ -98,24 +98,54 @@
         ["oranges", 200],
       ]); //created a map called fruits
       document.write("single value from map" + fruits.get("oranges"));
-      hello = () => alert("hello world from arrow function");// an arrow fucntion which alerts hello world onload
-      window.addEventListener("load",hello); 
-      class user_info//a class named user_info with properties like name,age and wealth
-      {
-        constructor(name,age,wealth) // constructor method
-        {
-            this.name=name;
-            this.age=age;
-            this.wealth=wealth;
+      hello = () => alert("hello world from arrow function"); // an arrow fucntion which alerts hello world onload
+      window.addEventListener("load", hello);
+      class user_info {
+        //a class named user_info with properties like name,age and wealth
+        constructor(
+          name,
+          age,
+          wealth // constructor method
+        ) {
+          this.name = name;
+          this.age = age;
+          this.wealth = wealth;
         }
-        detail() // a method that simply prints out user info
-        {
-            return "username is"+" "+this.name+" "+"user age is"+" "+this.age+""+"user wealth is"+" "+this.wealth
+        detail() { // a method that simply prints out user info
+          return (
+            "username is" +
+            " " +
+            this.name +
+            " " +
+            "user age is" +
+            " " +
+            this.age +
+            "" +
+            "user wealth is" +
+            " " +
+            this.wealth
+          );
         }
       }
-      const obj = new user_info("jack",13,3000000); //obj is the object of user_info class
+      const obj = new user_info("jack", 13, 3000000); //obj is the object of user_info class
       document.write(obj.detail());
-      
+      const emp_data =
+        '{"employees":[' +
+        '{"firstName":"ramesh","id":1 },' +
+        '{"firstName":"suresh","id":2 },' +
+        '{"firstName":"mahesh","id":3 }]}';
+      const json_data = JSON.parse(emp_data);
+      console.log(
+        "name of employee is" +
+          json_data.employees[1].firstName +
+          " " +
+          "and id is" +
+          " " +
+          json_data.employees[1].id
+      );//displaying the json data
+      (function () {
+        console.log("self invoke");
+      })();// a self invoking function
     </script>
   </head>
   <body>
