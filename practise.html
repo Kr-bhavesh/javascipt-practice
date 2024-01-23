@@ -100,7 +100,9 @@
       document.write("single value from map" + fruits.get("oranges"));
       hello = () => alert("hello world from arrow function"); // an arrow fucntion which alerts hello world onload
       window.addEventListener("load", hello);
-      class user_info {
+      let reg_demo = "will try to search something from this string";
+      console.log(reg_demo.search("search")); //regex demo
+      class human {
         //a class named user_info with properties like name,age and wealth
         constructor(
           name,
@@ -111,7 +113,8 @@
           this.age = age;
           this.wealth = wealth;
         }
-        detail() { // a method that simply prints out user info
+        detail() {
+          // a method that simply prints out user info
           return (
             "username is" +
             " " +
@@ -127,8 +130,31 @@
           );
         }
       }
-      const obj = new user_info("jack", 13, 3000000); //obj is the object of user_info class
+      const obj = new human("jack", 13, 3000000); //obj is the object of user_info class
       document.write(obj.detail());
+      class Car {
+        //parent oclass
+        constructor(brand) {
+          this.carname = brand;
+        }
+        present() {
+          return "I have a " + this.carname;
+        }
+      }
+
+      class Model extends Car {
+        //child class
+        constructor(brand, mod) {
+          super(brand);
+          this.model = mod;
+        }
+        show() {
+          return this.present() + ", it is a " + this.model;
+        }
+      }
+
+      const myCar = new Model("Ford", "Mustang");
+      console.log(myCar.show());
       const emp_data =
         '{"employees":[' +
         '{"firstName":"ramesh","id":1 },' +
@@ -142,10 +168,46 @@
           "and id is" +
           " " +
           json_data.employees[1].id
-      );//displaying the json data
+      ); //displaying the json data
       (function () {
         console.log("self invoke");
-      })();// a self invoking function
+      })(); // a self invoking function
+      function sum(a, b) {
+        return a + b;
+      }
+      function callback_demo(data) {
+        console.log(data);
+      }
+      res = sum(90, 90);
+      callback_demo(res); //callback example
+      function promise_example(some) {
+        console.log(some);
+      }
+      //promise example
+      let my_promise = new Promise(function (resolve, reject) {
+        let i = 10;
+        if (i == 10) {
+          resolve("resolved");
+        } else {
+          reject("rejected");
+        }
+      });
+      my_promise.then(
+        function (value) {
+          promise_example(value);
+        },
+        function (err) {
+          promise_example(err);
+        }
+      );
+      async function async_demo() {
+        //async await example
+        let new_promise = new Promise(function (resolve, reject) {
+          let int_data = resolve("got resolved");
+        });
+        console.log(await new_promise);
+      }
+      async_demo();
     </script>
   </head>
   <body>
